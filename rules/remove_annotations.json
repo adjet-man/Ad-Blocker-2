@@ -1,0 +1,11 @@
+[
+  {
+    "id": 26,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "www.youtube.com/annotations_invideo",
+      "domains": ["www.youtube.com"]
+    }
+  }
+]

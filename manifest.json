@@ -1,0 +1,71 @@
+{
+
+    "name" : "Trojan Ad-Blocker",
+    "version": "1.0",
+    "description": "Extension that blocks ads on webpages and on youtube",
+    
+    "manifest_version": 3,
+
+    "icons": 
+    {
+     "16": "Logo/logo.png",
+     "48": "Logo/logo.png",
+     "128": "Logo/logo.png",
+     "300": "Logo/logo.png"
+    },
+
+    "declarative_net_request": {
+        "rule_resources": [
+          
+        {
+          "id" : "ads",
+          "enabled": true,
+          "path":"ads.json"
+        },
+
+        {
+          "id": "blockLIST",
+          "enabled": true,
+          "path": "block.json"
+        },
+
+        {
+          "id": "advLIST",
+          "enabled": true,
+          "path": "adv.json"
+        },
+
+        {
+          "id": "suspLIST",
+          "enabled": true,
+          "path": "susp.json"
+        },
+
+        { "id": "yads", "enabled": true, "path": "rules/remove_ads.json" },
+
+        {
+          "id": "annotations",
+          "enabled": true,
+          "path": "rules/remove_annotations.json"
+        }
+      
+      ]
+      },
+
+      "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback","tabs","webNavigation" ],
+
+        "host_permissions":["<all_urls>"],
+
+        "content_scripts": 
+        [ 
+           { "js": ["content.js"] ,
+             "run_at": "document_end",
+             "matches": ["https://*/*","http://*/*","https://*.youtube.com/*"],
+             "all_frames": true,
+             "match_about_blank": true 
+            } 
+      ]
+
+}
